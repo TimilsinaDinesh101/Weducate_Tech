@@ -203,5 +203,58 @@ section {
             </div>
         </div>
     </section>
+
+
+    <!-- <script type="module">
+        // Import Firebase modules
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
+    
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyBoAh0fBUqDxaFYdqa9tDRc5fwKlU_4ako",
+            authDomain: "weducate-4407a.firebaseapp.com",
+            projectId: "weducate-4407a",
+            storageBucket: "weducate-4407a.appspot.com",
+            messagingSenderId: "964717290907",
+            appId: "1:964717290907:web:591ca9936ca50a36ebed3e",
+            measurementId: "G-5F6NDCTMQF"
+        };
+    
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+    
+        // Handle form submission
+        document.querySelector('form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById("signupName").value;
+            const email = document.getElementById("signupEmail").value;
+            const password = document.getElementById("signupPassword").value;
+            const repeatPassword = document.getElementById("signupRepeatPassword").value;
+            const termsCheckbox = document.getElementById("termsCheckbox").checked;
+    
+            if (password !== repeatPassword) {
+                alert("Passwords do not match");
+                return;
+            }
+    
+            if (!termsCheckbox) {
+                alert("Please agree to the terms and conditions");
+                return;
+            }
+    
+            createUserWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    alert("User registered successfully!");
+                    window.location.href = "login.html";
+                })
+                .catch((error) => {
+                    alert("Error: " + error.message);
+                });
+        });
+    </script> -->
+    
+
 </body>
 </html>
