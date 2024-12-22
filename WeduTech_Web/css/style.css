@@ -92,7 +92,7 @@ a:focus {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  background-color: #7335b7;
+  background-color: #0F172A;
   border-radius: 0 0 350px 0;
 }
 
@@ -251,12 +251,12 @@ a:focus {
   display: inline-block;
   padding: 5px 15px;
   margin: 0 10px;
-  background-color: #f8842b;
+  background-color: #3B82F6;
   color: #ffffff;
   border-radius: 5px;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
-  border: 1px solid #f8842b;
+  border: 1px solid #3B82F6;
 }
 
 .quote_btn-container .quote_btn:hover {
@@ -321,12 +321,12 @@ a:focus {
 .slider_section .detail-box .btn-box .btn1 {
   display: inline-block;
   padding: 12px 15px;
-  background-color: #5a2a8f;
+  background-color: #3B82F6;
   color: #ffffff;
   border-radius: 5px;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
-  border: 1px solid #5a2a8f;
+  border: 1px solid #3B82F6;
 }
 
 .slider_section .detail-box .btn-box .btn1:hover {
@@ -443,7 +443,7 @@ a:focus {
 .service_section .box:hover::before {
   -webkit-transform: scale(5);
           transform: scale(5);
-  background-color: #7335b7;
+  background-color: #0F172A;
 }
 
 .service_section .box:hover img {
@@ -464,12 +464,12 @@ a:focus {
 .service_section .btn-box a {
   display: inline-block;
   padding: 10px 45px;
-  background-color: #7335b7;
+  background-color: #0F172A;
   color: #ffffff;
   border-radius: 5px;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
-  border: 1px solid #7335b7;
+  border: 1px solid #0F172A;
 }
 
 .service_section .btn-box a:hover {
@@ -479,7 +479,7 @@ a:focus {
 }
 
 .about_section {
-  background-color: #7335b7;
+  background-color: #0F172A;
   color: #ffffff;
   border-radius: 250px 0 250px 0;
 }
@@ -505,12 +505,12 @@ a:focus {
 .about_section .detail-box a {
   display: inline-block;
   padding: 10px 45px;
-  background-color: #f8842b;
+  background-color: #3B82F6;
   color: #ffffff;
   border-radius: 5px;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
-  border: 1px solid #f8842b;
+  border: 1px solid #3B82F6;
   margin-top: 15px;
 }
 
@@ -611,7 +611,6 @@ a:focus {
 
 .client_section .box .client_info .client_name h6 {
   margin-bottom: 0;
-  color: #7335b7;
   font-weight: normal;
   font-size: 15px;
   text-transform: uppercase;
@@ -627,7 +626,7 @@ a:focus {
 
 .client_section .box .detail-box {
   background-color: #ffffff;
-  background-color: #7335b7;
+  background-color: #0F172A;
   color: #ffffff;
   border-radius: 15px;
   padding: 85px 45px 15px 45px;
@@ -702,12 +701,12 @@ a:focus {
   font-family: "Poppins", sans-serif;
   display: inline-block;
   padding: 10px 65px;
-  background-color: #7335b7;
+  background-color: #3B82F6;
   color: #ffffff;
   border-radius: 3px;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
-  border: 1px solid #7335b7;
+  border: 1px solid #3B82F6;
   color: #fff;
   margin-top: 10px;
 }
@@ -740,7 +739,7 @@ a:focus {
 }
 
 .footer_container {
-  background-color: #7335b7;
+  background-color: #0F172A;
   color: #ffffff;
   border-radius: 350px 0 0 0;
   padding-top: 145px;
