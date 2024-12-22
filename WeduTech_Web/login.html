@@ -170,5 +170,46 @@ section {
             </div>
         </div>
     </section>
+
+
+    <!-- <script type="module">
+        // Imported firebase sdk and added firebase configuration and initialized
+        // and handled login and signup form submission.
+        // Import Firebase modules
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
+        import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
+    
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyBoAh0fBUqDxaFYdqa9tDRc5fwKlU_4ako",
+            authDomain: "weducate-4407a.firebaseapp.com",
+            projectId: "weducate-4407a",
+            storageBucket: "weducate-4407a.appspot.com",
+            messagingSenderId: "964717290907",
+            appId: "1:964717290907:web:591ca9936ca50a36ebed3e",
+            measurementId: "G-5F6NDCTMQF"
+        };
+    
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+    
+        // Handle form submission for login
+        document.querySelector("form").addEventListener("submit", (e) => {
+            e.preventDefault();
+            const email = document.getElementById("loginEmail").value;
+            const password = document.getElementById("loginPassword").value;
+    
+            signInWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    alert("Login Successful");
+                    window.location.href = "index.html";
+                })
+                .catch((error) => {
+                    alert("Error: " + error.message);
+                });
+        });
+    </script> -->
+
 </body>
 </html>
