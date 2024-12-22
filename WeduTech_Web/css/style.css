@@ -734,10 +734,6 @@ a:focus {
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transitions */
 }
 
-.contact_section .map_container .map #googleMap {
-  height: 100%;
-}
-
 .footer_container {
   background-color: #0F172A;
   color: #ffffff;
