@@ -1,78 +1,38 @@
-// ===== Display Current Year =====
-function getYear() {
-  var currentDate = new Date();
-  var currentYear = currentDate.getFullYear();
-  var el = document.querySelector("#displayYear");
-  if (el) el.innerHTML = currentYear;
-}
-getYear();
-
-// ===== Navbar Scroll Effect =====
 (function () {
-  var header = document.querySelector(".header_section");
-  if (!header) return;
+  var header = document.querySelector('.site-header');
+  var menuButton = document.querySelector('[data-menu-button]');
+  var menu = document.querySelector('[data-nav-menu]');
+  var year = document.querySelectorAll('[data-current-year]');
+  year.forEach(function (item) { item.textContent = new Date().getFullYear(); });
 
-  var scrollThreshold = 50;
+  function onScroll() { if (header) header.classList.toggle('is-scrolled', window.scrollY > 8); }
+  window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
 
-  function handleScroll() {
-    if (window.scrollY > scrollThreshold) {
-      header.classList.add("scrolled");
-    } else {
-      header.classList.remove("scrolled");
-    }
-  }
-
-  window.addEventListener("scroll", handleScroll, { passive: true });
-  handleScroll();
-})();
-
-// ===== Scroll-Triggered Animations =====
-(function () {
-  var animatedElements = document.querySelectorAll(".animate-on-scroll");
-  if (!animatedElements.length) return;
-
-  if ("IntersectionObserver" in window) {
-    var observer = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("animated");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        threshold: 0.12,
-        rootMargin: "0px 0px -40px 0px",
-      }
-    );
-
-    animatedElements.forEach(function (el) {
-      observer.observe(el);
-    });
-  } else {
-    // Fallback: show everything
-    animatedElements.forEach(function (el) {
-      el.classList.add("animated");
+  if (menuButton && menu) {
+    menuButton.addEventListener('click', function () {
+      var open = menu.classList.toggle('is-open');
+      menuButton.setAttribute('aria-expanded', open);
     });
   }
-})();
 
-// ===== Smooth Scroll for Anchor Links =====
-(function () {
-  document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
-    anchor.addEventListener("click", function (e) {
-      var targetId = this.getAttribute("href");
-      if (targetId === "#" || targetId === "#!") return;
+  var reveal = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    var observer = new IntersectionObserver(function (entries) { entries.forEach(function (entry) { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); } }); }, { threshold: .12 });
+    reveal.forEach(function (element) { observer.observe(element); });
+  } else { reveal.forEach(function (element) { element.classList.add('is-visible'); }); }
 
-      var target = document.querySelector(targetId);
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
-      }
+  document.querySelectorAll('[data-contact-form]').forEach(function (form) {
+    form.addEventListener('submit', async function (event) {
+      event.preventDefault();
+      var status = form.querySelector('[data-form-message]');
+      var button = form.querySelector('button[type="submit"]');
+      if (button) { button.disabled = true; button.textContent = 'Sending...'; }
+      try {
+        var response = await fetch('https://formspree.io/f/xrblzzel', { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
+        if (!response.ok) throw new Error('Request failed');
+        form.reset(); if (status) { status.textContent = 'Thanks! Your message has been sent successfully.'; status.classList.add('show'); }
+      } catch (error) { if (status) { status.textContent = 'We could not send your message. Please try again.'; status.classList.add('show'); } }
+      if (button) { button.disabled = false; button.textContent = button.dataset.label || 'Send message'; }
     });
   });
 })();
